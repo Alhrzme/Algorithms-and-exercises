@@ -23,6 +23,3 @@ function mergeSort($arr) {
     }
     return $arr;
 }
-$arr = array(2,3,7,64,2,3,5,4,6, 9);
-var_dump($arr);
-var_dump(mergeSort($arr));

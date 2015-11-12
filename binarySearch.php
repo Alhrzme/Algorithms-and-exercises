@@ -1,21 +1,20 @@
 return position of element >= $val
 <?php
+function getBinarySearch($arr, $val)
+{
+    return binarySearch($arr, $val, 0, count($arr)-1);
+}
 function binarySearch($arr, $val, $start, $end)
 {
     $num = $end - $start;
-    $ceilNum = ceil($num/2);
     if($num>1){
-        if($arr[$start+$ceilNum+1]>$val&&$arr[$start+$ceilNum]>=$val){
-            return binarySearch($arr, $val, $start, $start+$ceilNum);
-        } elseif($arr[$start+$ceilNum]<$val) {
-            return binarySearch($arr, $val, $start+$ceilNum+1, $end);
-        } else {
-            return $end;
-        }
+        $average = ceil($num/2);
+        if($arr[$start + $average] == $val) return $start + $average;
+        if($arr[$start + $average] > $val) return binarySearch($arr, $val, $start, $start + $average-1);
+        return binarySearch($arr, $val, $start+$average, $end);
     }
-    else {
-        if($arr[$end]>=$val&&($arr[$start]<$val)){
-            return $end;
-        } else return $start;
+    if($arr[$end]>=$val&&($arr[$start]<$val)){
+        return $end;
     }
+    return $start;
 }

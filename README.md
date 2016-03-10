@@ -1,1 +1,1 @@
-# Algorithms-and-exercises, mostly from T.Kormen
+# Algorithms-and-exercises on PHP
